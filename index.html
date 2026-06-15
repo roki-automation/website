@@ -96,22 +96,54 @@
         </div>
     </section>
 
-    <section id="showroom" class="fade-in-section min-h-screen py-24 px-6 max-w-6xl mx-auto">
-        <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// Showroom Virtual</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-12">El futuro automatizado, en acción.</h2>
-        
-        <div class="space-y-24">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="w-full md:w-1/2 bg-grisGrafito aspect-video flex items-center justify-center text-gray-500 overflow-hidden border border-white/10">
-                    <span class="text-xs tracking-widest uppercase">[ Vídeo IA: Climatización Sincrónica ]</span>
-                </div>
-                <div class="w-full md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">Sincronización Solar Térmica</h3>
-                    <p class="text-gray-400">Las persianas y cortinas motorizadas se posicionan automáticamente calculando el ángulo del sol y la temperatura interior de la estancia. Confort térmico pasivo sin gastar un kilovatio de más.</p>
-                </div>
+<section id="showroom" class="fade-in-section min-h-screen py-24 px-6 max-w-6xl mx-auto">
+    <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// Showroom Virtual</span>
+    <h2 class="text-3xl md:text-5xl font-bold mb-12">El futuro automatizado, en acción.</h2>
+    
+    <div class="space-y-24">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 relative group overflow-hidden border border-white/10 rounded-sm bg-grisGrafito aspect-video">
+                <video 
+                    class="showroom-video w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+                    muted 
+                    loop 
+                    playsinline
+                    poster="videos/poster-video1.png">
+                    <source data-src="videos/video1.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             </div>
+            <div class="w-full md:w-1/2">
+                <h3 class="text-2xl font-bold mb-4">Sincronización Solar Térmica</h3>
+                <p class="text-gray-400">Las superficies acristaladas inteligentes se posicionan automáticamente calculando el ángulo del sol y la temperatura interior. Confort térmico pasivo sin intervención humana.</p>
             </div>
-    </section>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Extendemos el Intersection Observer que ya teníamos
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const source = video.querySelector('source');
+                
+                // Carga el vídeo solo cuando entra en el viewport (Lazy Load)
+                if (!video.src && source.dataset.src) {
+                    source.src = source.dataset.src;
+                    video.load();
+                    video.classList.remove('opacity-0');
+                }
+                video.play();
+            } else {
+                entry.target.pause(); // Pausa si el usuario hace scroll hacia fuera para ahorrar CPU
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.showroom-video').forEach(v => videoObserver.observe(v));
+</script>
 
     <section id="contacto" class="fade-in-section min-h-screen flex flex-col justify-center items-center px-6 py-24 bg-gradient-to-t from-azulMedianoche/10 to-black">
         <div class="max-w-xl w-full border border-white/10 p-8 md:p-12 bg-grisGrafito/20 backdrop-blur-sm">
