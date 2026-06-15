@@ -19,7 +19,6 @@
         }
     </script>
     <style>
-        /* Simulación de transiciones suaves para el scroll narrativo */
         .fade-in-section {
             opacity: 0;
             transform: translateY(20px);
@@ -39,57 +38,65 @@
 
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-bold tracking-wider text-white">
-            <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="navigateTo('inicio')">
+            <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
                 <img src="images/logo.png" alt="Roki Logo" class="logo" />
             </div>
         </div>
-        <div class="space-x-6 text-sm tracking-widest uppercase text-gray-400">
-            <a href="#filosofia" class="hover:text-oroChampagne transition">Sinergia</a>
-            <a href="#ecosistema" class="hover:text-oroChampagne transition">Tecnología</a>
-            <a href="#showroom" class="hover:text-oroChampagne transition">Showroom</a>
-            <a href="#contacto" class="border border-oroChampagne px-4 py-2 text-oroChampagne hover:bg-oroChampagne hover:text-black transition">Contacto</a>
+        
+        <div class="flex items-center gap-8">
+            <div class="space-x-6 text-sm tracking-widest uppercase text-gray-400 hidden md:block">
+                <a href="#filosofia" class="hover:text-oroChampagne transition" data-i18n="nav_synergy">Sinergia</a>
+                <a href="#ecosistema" class="hover:text-oroChampagne transition" data-i18n="nav_tech">Tecnología</a>
+                <a href="#showroom" class="hover:text-oroChampagne transition" data-i18n="nav_showroom">Showroom</a>
+                <a href="#contacto" class="border border-oroChampagne px-4 py-2 text-oroChampagne hover:bg-oroChampagne hover:text-black transition" data-i18n="nav_contact">Contacto</a>
+            </div>
+            <div class="text-xs font-bold tracking-widest flex gap-2 border-l border-white/20 pl-6">
+                <button id="btn-es" onclick="setLanguage('es')" class="transition hover:text-white">ES</button>
+                <span class="text-gray-600">|</span>
+                <button id="btn-en" onclick="setLanguage('en')" class="transition hover:text-white">EN</button>
+            </div>
         </div>
     </nav>
 
     <section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-azulMedianoche/20 to-black">
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4" data-i18n="hero_title">
             Inteligencia invisible.<br><span class="text-oroChampagne">Confort absoluto.</span>
         </h1>
-        <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-8">
+        <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-8" data-i18n="hero_subtitle">
             Diseñamos, programamos e integramos domótica de vanguardia sin alterar la estética de tu espacio. Código abierto, sin cuotas, a la medida de tu hogar en Torrevieja.
         </p>
-        <a href="#filosofia" class="animate-bounce text-oroChampagne tracking-widest text-sm uppercase">
+        <a href="#filosofia" class="animate-bounce text-oroChampagne tracking-widest text-sm uppercase" data-i18n="hero_cta">
             Explorar Roki ↓
         </a>
     </section>
 
     <section id="filosofia" class="fade-in-section min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 py-24">
-        <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// El Factor Roki</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-6">Ingeniería de software e integración arquitectónica en un mismo equipo.</h2>
-        <p class="text-gray-400 text-lg leading-relaxed max-w-3xl">
+        <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2" data-i18n="factor_tag">// El Factor Roki</span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6" data-i18n="factor_title">Ingeniería de software e integración arquitectónica en un mismo equipo.</h2>
+        <p class="text-gray-400 text-lg leading-relaxed max-w-3xl" data-i18n="factor_desc">
             Instalar domótica convencional suele significar coordinar a un programador externo por un lado y a técnicos de instalación convencionales por otro. En <strong>Roki</strong> unimos ambos mundos. Nuestro equipo evalúa la estructura de tu vivienda, ejecuta la integración técnica de forma limpia y oculta, y programa sistemas robustos basados en hardware desarrollado a medida y plataformas Open Source. El resultado: tecnología impecable, estética intacta.
         </p>
     </section>
 
     <section id="ecosistema" class="fade-in-section min-h-screen bg-grisGrafito/30 py-24 px-6">
         <div class="max-w-6xl mx-auto">
-            <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// Soluciones Avanzadas</span>
-            <h2 class="text-3xl md:text-5xl font-bold mb-12">Tecnología sin ataduras corporativas.</h2>
+            <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2" data-i18n="eco_tag">// Soluciones Avanzadas</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-12" data-i18n="eco_title">Tecnología sin ataduras corporativas.</h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="p-8 border border-white/10 bg-black/40 hover:border-oroChampagne/50 transition duration-300">
                     <div class="text-oroChampagne text-3xl mb-4">01</div>
-                    <h3 class="text-xl font-bold mb-3">Domótica Invisible</h3>
-                    <p class="text-gray-400 text-sm">Control centralizado de iluminación, clima y persianas bajo Home Assistant. Tus datos no viajan a nubes externas; se quedan en tu propiedad.</p>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="card1_title">Domótica Invisible</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="card1_desc">Control centralizado de iluminación, clima y persianas bajo Home Assistant. Tus datos no viajan a nubes externas; se quedan en tu propiedad.</p>
                 </div>
                 <div class="p-8 border border-white/10 bg-black/40 hover:border-oroChampagne/50 transition duration-300">
                     <div class="text-oroChampagne text-3xl mb-4">02</div>
-                    <h3 class="text-xl font-bold mb-3">Seguridad Contextual</h3>
-                    <p class="text-gray-400 text-sm">Sistemas perimetrales avanzados que detectan la presencia real de los miembros del hogar. Olvídate de los códigos engorrosos y las falsas alarmas.</p>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="card2_title">Seguridad Contextual</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="card2_desc">Sistemas perimetrales avanzados que detectan la presencia real de los miembros del hogar. Olvídate de los códigos engorrosos y las falsas alarmas.</p>
                 </div>
                 <div class="p-8 border border-white/10 bg-black/40 hover:border-oroChampagne/50 transition duration-300">
                     <div class="text-oroChampagne text-3xl mb-4">03</div>
-                    <h3 class="text-xl font-bold mb-3">Dispositivos a Medida</h3>
-                    <p class="text-gray-400 text-sm">Diseño y desarrollo de sensores propios utilizando microelectrónica avanzada. Resolvemos necesidades exclusivas arquitectónicas o de monitorización agrícola masiva.</p>
+                    <h3 class="text-xl font-bold mb-3" data-i18n="card3_title">Dispositivos a Medida</h3>
+                    <p class="text-gray-400 text-sm" data-i18n="card3_desc">Diseño y desarrollo de sensores propios utilizando microelectrónica avanzada. Resolvemos necesidades exclusivas arquitectónicas o de monitorización agrícola masiva.</p>
                 </div>
             </div>
         </div>
@@ -98,89 +105,167 @@
     <section id="showroom" class="fade-in-section min-h-screen py-24 px-6 max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-                <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// Showroom Virtual</span>
-                <h2 class="text-3xl md:text-5xl font-bold">El futuro automatizado, en acción.</h2>
+                <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2" data-i18n="show_tag">// Showroom Virtual</span>
+                <h2 class="text-3xl md:text-5xl font-bold" data-i18n="show_title">El futuro automatizado, en acción.</h2>
             </div>
             <a href="/presentacion" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 border border-oroChampagne text-oroChampagne px-6 py-3 hover:bg-oroChampagne hover:text-black transition duration-300 uppercase tracking-widest text-xs font-bold whitespace-nowrap">
-                Ver Presentación Corporativa <span>&rarr;</span>
+                <span data-i18n="show_btn">Ver Presentación Corporativa</span> <span>&rarr;</span>
             </a>
         </div>
         
         <div class="space-y-24">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2 relative group overflow-hidden border border-white/10 rounded-sm bg-grisGrafito aspect-video">
-                <video 
-                    class="showroom-video w-full h-full object-cover opacity-0 transition-opacity duration-1000"
-                    muted 
-                    loop 
-                    playsinline
-                    poster="videos/poster-video1.png">
+                    <video class="showroom-video w-full h-full object-cover opacity-0 transition-opacity duration-1000" muted loop playsinline poster="videos/poster-video1.png">
                         <source data-src="videos/video1.mp4" type="video/mp4">
                     </video>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
                 <div class="w-full md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4">Sincronización Solar Térmica</h3>
-                    <p class="text-gray-400">Las superficies acristaladas inteligentes se posicionan automáticamente calculando el ángulo del sol y la temperatura interior. Confort térmico pasivo sin intervención humana.</p>
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="vid1_title">Sincronización Solar Térmica</h3>
+                    <p class="text-gray-400" data-i18n="vid1_desc">Las superficies acristaladas inteligentes se posicionan automáticamente calculando el ángulo del sol y la temperatura interior. Confort térmico pasivo sin intervención humana.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Extendemos el Intersection Observer que ya teníamos
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const video = entry.target;
-                    const source = video.querySelector('source');
-                    
-                    // Carga el vídeo solo cuando entra en el viewport (Lazy Load)
-                    if (!video.src && source.dataset.src) {
-                        source.src = source.dataset.src;
-                        video.load();
-                        video.classList.remove('opacity-0');
-                    }
-                    video.play();
-                } else {
-                    entry.target.pause(); // Pausa si el usuario hace scroll hacia fuera para ahorrar CPU
-                }
-            });
-        }, { threshold: 0.3 });
-
-        document.querySelectorAll('.showroom-video').forEach(v => videoObserver.observe(v));
-    </script>
-
     <section id="contacto" class="fade-in-section min-h-screen flex flex-col justify-center items-center px-6 py-24 bg-gradient-to-t from-azulMedianoche/10 to-black">
         <div class="max-w-xl w-full border border-white/10 p-8 md:p-12 bg-grisGrafito/20 backdrop-blur-sm">
-            <h2 class="text-3xl font-bold mb-2 text-center">Inicia tu proyecto con Roki</h2>
-            <p class="text-gray-400 text-sm text-center mb-8">Cuéntanos qué necesitas automatizar o proteger en la zona de Torrevieja y alrededores.</p>
+            <h2 class="text-3xl font-bold mb-2 text-center" data-i18n="contact_title">Inicia tu proyecto con Roki</h2>
+            <p class="text-gray-400 text-sm text-center mb-8" data-i18n="contact_desc">Cuéntanos qué necesitas automatizar o proteger en la zona de Torrevieja y alrededores.</p>
             <form class="space-y-6">
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Nombre o Empresa</label>
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2" data-i18n="contact_lbl_name">Nombre o Empresa</label>
                     <input type="text" class="w-full bg-black/60 border border-white/20 p-3 text-white focus:outline-none focus:border-oroChampagne">
                 </div>
                 <div>
-                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Tipo de Propiedad</label>
+                    <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2" data-i18n="contact_lbl_type">Tipo de Propiedad</label>
                     <select class="w-full bg-black/60 border border-white/20 p-3 text-white focus:outline-none focus:border-oroChampagne">
-                        <option>Vivienda Residencial de Lujo</option>
-                        <option>Explotación Agrícola / Sensores Especiales</option>
-                        <option>Local u Oficina Comercial</option>
+                        <option data-i18n="contact_opt_1">Vivienda Residencial de Lujo</option>
+                        <option data-i18n="contact_opt_2">Explotación Agrícola / Sensores Especiales</option>
+                        <option data-i18n="contact_opt_3">Local u Oficina Comercial</option>
                     </select>
                 </div>
-                <button type="submit" class="w-full bg-oroChampagne text-black font-bold uppercase tracking-widest p-4 hover:bg-white transition duration-300">
+                <button type="submit" class="w-full bg-oroChampagne text-black font-bold uppercase tracking-widest p-4 hover:bg-white transition duration-300" data-i18n="contact_btn">
                     Solicitar Auditoría Técnica
                 </button>
             </form>
         </div>
     </section>
 
-    <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-600 tracking-wider">
+    <footer class="border-t border-white/10 py-8 text-center text-xs text-gray-600 tracking-wider" data-i18n="footer_text">
         &copy; 2026 ROKI. Todos los derechos reservados. Torrevieja, España.
     </footer>
 
     <script>
-        // Carga diferida de vídeos (Lazy Load)
+        // 1. Diccionario de Traducciones (i18n)
+        const i18n = {
+            es: {
+                nav_synergy: "Sinergia", nav_tech: "Tecnología", nav_showroom: "Showroom", nav_contact: "Contacto",
+                hero_title: "Inteligencia invisible.<br><span class='text-oroChampagne'>Confort absoluto.</span>",
+                hero_subtitle: "Diseñamos, programamos e integramos domótica de vanguardia sin alterar la estética de tu espacio. Código abierto, sin cuotas, a la medida de tu hogar en Torrevieja.",
+                hero_cta: "Explorar Roki ↓",
+                factor_tag: "// El Factor Roki",
+                factor_title: "Ingeniería de software e integración arquitectónica en un mismo equipo.",
+                factor_desc: "Instalar domótica convencional suele significar coordinar a un programador externo por un lado y a técnicos de instalación convencionales por otro. En <strong>Roki</strong> unimos ambos mundos. Nuestro equipo evalúa la estructura de tu vivienda, ejecuta la integración técnica de forma limpia y oculta, y programa sistemas robustos basados en hardware desarrollado a medida y plataformas Open Source. El resultado: tecnología impecable, estética intacta.",
+                eco_tag: "// Soluciones Avanzadas",
+                eco_title: "Tecnología sin ataduras corporativas.",
+                card1_title: "Domótica Invisible",
+                card1_desc: "Control centralizado de iluminación, clima y persianas bajo Home Assistant. Tus datos no viajan a nubes externas; se quedan en tu propiedad.",
+                card2_title: "Seguridad Contextual",
+                card2_desc: "Sistemas perimetrales avanzados que detectan la presencia real de los miembros del hogar. Olvídate de los códigos engorrosos y las falsas alarmas.",
+                card3_title: "Dispositivos a Medida",
+                card3_desc: "Diseño y desarrollo de sensores propios utilizando microelectrónica avanzada. Resolvemos necesidades exclusivas arquitectónicas o de monitorización agrícola masiva.",
+                show_tag: "// Showroom Virtual",
+                show_title: "El futuro automatizado, en acción.",
+                show_btn: "Ver Presentación Corporativa",
+                vid1_title: "Sincronización Solar Térmica",
+                vid1_desc: "Las superficies acristaladas inteligentes se posicionan automáticamente calculando el ángulo del sol y la temperatura interior. Confort térmico pasivo sin intervención humana.",
+                contact_title: "Inicia tu proyecto con Roki",
+                contact_desc: "Cuéntanos qué necesitas automatizar o proteger en la zona de Torrevieja y alrededores.",
+                contact_lbl_name: "Nombre o Empresa",
+                contact_lbl_type: "Tipo de Propiedad",
+                contact_opt_1: "Vivienda Residencial de Lujo",
+                contact_opt_2: "Explotación Agrícola / Sensores Especiales",
+                contact_opt_3: "Local u Oficina Comercial",
+                contact_btn: "Solicitar Auditoría Técnica",
+                footer_text: "&copy; 2026 ROKI. Todos los derechos reservados. Torrevieja, España."
+            },
+            en: {
+                nav_synergy: "Synergy", nav_tech: "Technology", nav_showroom: "Showroom", nav_contact: "Contact",
+                hero_title: "Invisible intelligence.<br><span class='text-oroChampagne'>Absolute comfort.</span>",
+                hero_subtitle: "We design, program, and integrate cutting-edge home automation without altering the aesthetics of your space. Open source, no fees, tailored to your home in Torrevieja.",
+                hero_cta: "Explore Roki ↓",
+                factor_tag: "// The Roki Factor",
+                factor_title: "Software engineering and architectural integration in the same team.",
+                factor_desc: "Installing conventional home automation usually means coordinating an external programmer on one side and conventional installation technicians on the other. At <strong>Roki</strong> we unite both worlds. Our team evaluates your home's structure, executes the technical integration cleanly and hidden, and programs robust systems based on custom-developed hardware and Open Source platforms. The result: flawless technology, intact aesthetics.",
+                eco_tag: "// Advanced Solutions",
+                eco_title: "Technology without corporate ties.",
+                card1_title: "Invisible Automation",
+                card1_desc: "Centralized control of lighting, climate, and blinds under Home Assistant. Your data does not travel to external clouds; it stays on your property.",
+                card2_title: "Contextual Security",
+                card2_desc: "Advanced perimeter systems that detect the real presence of household members. Forget cumbersome codes and false alarms.",
+                card3_title: "Custom Devices",
+                card3_desc: "Design and development of proprietary sensors using advanced microelectronics. We solve exclusive architectural or massive agricultural monitoring needs.",
+                show_tag: "// Virtual Showroom",
+                show_title: "The automated future, in action.",
+                show_btn: "View Corporate Presentation",
+                vid1_title: "Thermal Solar Synchronization",
+                vid1_desc: "Smart glass surfaces position themselves automatically by calculating the sun's angle and interior temperature. Passive thermal comfort without human intervention.",
+                contact_title: "Start your project with Roki",
+                contact_desc: "Tell us what you need to automate or protect in the Torrevieja area and surroundings.",
+                contact_lbl_name: "Name or Company",
+                contact_lbl_type: "Property Type",
+                contact_opt_1: "Luxury Residential Home",
+                contact_opt_2: "Agricultural Operation / Special Sensors",
+                contact_opt_3: "Commercial Premise or Office",
+                contact_btn: "Request Technical Audit",
+                footer_text: "&copy; 2026 ROKI. All rights reserved. Torrevieja, Spain."
+            }
+        };
+
+        // 2. Lógica de Idioma
+        function setLanguage(lang) {
+            localStorage.setItem('roki_lang', lang);
+            document.documentElement.lang = lang;
+            
+            // Actualizar botones del menú
+            document.getElementById('btn-es').className = lang === 'es' ? 'text-oroChampagne transition' : 'text-gray-600 hover:text-white transition';
+            document.getElementById('btn-en').className = lang === 'en' ? 'text-oroChampagne transition' : 'text-gray-600 hover:text-white transition';
+
+            // Reemplazar textos
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    el.innerHTML = i18n[lang][key];
+                }
+            });
+        }
+
+        // 3. Inicialización al cargar la web
+        window.addEventListener('DOMContentLoaded', () => {
+            let savedLang = localStorage.getItem('roki_lang');
+            if (!savedLang) {
+                // Detectar idioma del navegador si es la primera vez
+                const browserLang = navigator.language || navigator.userLanguage;
+                savedLang = browserLang.startsWith('es') ? 'es' : 'en';
+            }
+            setLanguage(savedLang);
+        });
+
+        // 4. Animaciones y Scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        const options = { threshold: 0.1 };
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, options);
+        sections.forEach(section => { observer.observe(section); });
+
+        // 5. Video Lazy Loading
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -198,18 +283,6 @@
             });
         }, { threshold: 0.3 });
         document.querySelectorAll('.showroom-video').forEach(v => videoObserver.observe(v));
-
-        // Transiciones de sección
-        const sections = document.querySelectorAll('.fade-in-section');
-        const options = { threshold: 0.1 };
-        const observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, options);
-        sections.forEach(section => { observer.observe(section); });
     </script>
 </body>
 </html>
