@@ -35,7 +35,9 @@
 
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-bold tracking-wider text-white">
-            ROKI<span class="text-oroChampagne">.</span>
+            <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="navigateTo('inicio')">
+                <img src="images/logo.png" alt="Roki Logo" class="logo" />
+            </div>
         </div>
         <div class="space-x-6 text-sm tracking-widest uppercase text-gray-400">
             <a href="#filosofia" class="hover:text-oroChampagne transition">Sinergia</a>
@@ -45,7 +47,7 @@
         </div>
     </nav>
 
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-azulMedianoche/20 to-black">
+    <section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-azulMedianoche/20 to-black">
         <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
             Inteligencia invisible.<br><span class="text-oroChampagne">Confort absoluto.</span>
         </h1>
@@ -59,9 +61,9 @@
 
     <section id="filosofia" class="fade-in-section min-h-screen flex flex-col justify-center max-w-5xl mx-auto px-6 py-24">
         <span class="text-oroChampagne tracking-widest uppercase text-xs mb-2">// El Factor Roki</span>
-        <h2 class="text-3xl md:text-5xl font-bold mb-6">Ingeniería de software y alta albañilería en un mismo equipo.</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6">Ingeniería de software e integración arquitectónica en un mismo equipo.</h2>
         <p class="text-gray-400 text-lg leading-relaxed max-w-3xl">
-            Instalar domótica convencional suele significar coordinar a un programador externo por un lado y a una empresa de reformas por otro. En <strong>Roki</strong> unimos ambos mundos. Evaluamos la estructura de tu vivienda, realizamos la reforma técnica necesaria de forma limpia y programamos sistemas robustos basados en hardware ad-hoc (<span class="text-white font-semibold">ESP32</span>) y plataformas Open Source.
+            Instalar domótica convencional suele significar coordinar a un programador externo por un lado y a técnicos de instalación convencionales por otro. En <strong>Roki</strong> unimos ambos mundos. Nuestro equipo evalúa la estructura de tu vivienda, ejecuta la integración técnica de forma limpia y oculta, y programa sistemas robustos basados en hardware desarrollado a medida y plataformas Open Source. El resultado: tecnología impecable, estética intacta.
         </p>
     </section>
 
@@ -83,8 +85,8 @@
                 </div>
                 <div class="p-8 border border-white/10 bg-black/40 hover:border-oroChampagne/50 transition duration-300">
                     <div class="text-oroChampagne text-3xl mb-4">03</div>
-                    <h3 class="text-xl font-bold mb-3">Dispositivos Ad-Hoc</h3>
-                    <p class="text-gray-400 text-sm">Diseño y soldadura de sensores a medida utilizando microcontroladores ESP32. Resolvemos necesidades exclusivas arquitectónicas o de monitorización agrícola masiva.</p>
+                    <h3 class="text-xl font-bold mb-3">Dispositivos a Medida</h3>
+                    <p class="text-gray-400 text-sm">Diseño y desarrollo de sensores propios utilizando microelectrónica avanzada. Resolvemos necesidades exclusivas arquitectónicas o de monitorización agrícola masiva.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +106,7 @@
                     <p class="text-gray-400">Las persianas y cortinas motorizadas se posicionan automáticamente calculando el ángulo del sol y la temperatura interior de la estancia. Confort térmico pasivo sin gastar un kilovatio de más.</p>
                 </div>
             </div>
-        </div>
+            </div>
     </section>
 
     <section id="contacto" class="fade-in-section min-h-screen flex flex-col justify-center items-center px-6 py-24 bg-gradient-to-t from-azulMedianoche/10 to-black">
